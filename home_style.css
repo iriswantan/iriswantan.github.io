@@ -1,5 +1,15 @@
-{
-backgrouond-color: #ffff;
-color: #555555;
-font-family: Arial, Helvetica, sans-serif;
+body{
+    backgrouond-color: #ffff;
+    color: #555555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+  
+    line-hieight:1.6em;
+}
+h1{
+    color: #00ff00;
+}
+p{
+    color: rgb(0,0,225);
 }
