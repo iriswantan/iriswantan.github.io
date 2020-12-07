@@ -1,110 +1,97 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Iris loves Wantan</title>
-    
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
-    <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
-    <!--[if lt IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
-    <style>
-      /* Style the video: 100% width and height to cover the entire window */
-      #myVideo {
-          position: fixed;
-          right: 0;
-          bottom: 0;
-          min-width: 100%;
-          min-height: 100%;
-      }
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-      /* Add some content at the bottom of the video/page */
-      .content {
-          position: fixed;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.5);
-          color: #f1f1f1;
-          width: 100%;
-          padding: 20px;
-      }
+    <title>Hello, world!</title>
+    <style type="text/css" media="screen">
+header {
+  position: relative;
+  background-color: black;
+  height: 75vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
 
-      /* Style the button used to pause/play the video */
-      #myBtn {
-          width: 200px;
-          font-size: 18px;
-          padding: 10px;
-          border: none;
-          background: #000;
-          color: #fff;
-          cursor: pointer;
-      }
+header video {
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
 
-      #myBtn:hover {
-          background: #ddd;
-          color: black;
-      }
-      .Menu {
-        font-size:100%;
-        font-family: arial;
-        display: grid;
-        grid: 40px / auto auto auto auto;
-  	    grid-gap: 40px;
-  	    padding: 10px;
-      }
+header .container {
+  position: relative;
+  z-index: 2;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+  header video {
+    display: none;
+  }
+}
     </style>
   </head>
-
   <body>
-    <!-- Here is our main header that is used across all the pages of our website -->
-    <!-- The video -->
-    <video autoplay muted loop id="myVideo">
-    <source src="DJI_20201105_133927_10_timelapse_eis.mp4" type="video/mp4">
-    </video>
-    
-    <!-- Optional: some overlay text to describe the video -->
-    <div class="content">
-      <h1>Iris loves wantan </h1>
-      <ul class = "Menu">
-        <a href = "iriswantan.github.io/home" style = "color:#fff;">Home</a>
-        <a href = "iriswantan.github.io/Team" style = "color:#fff;">Our team</a>
-        <a href = "iriswantan.github.io/Projects" style = "color:#fff;">Projects</a>
-        <a href = "iriswantan.github.io/Contact" style = "color:#fff;">Contact</a>
-      </ul>
- 
-    <p>A story of eat, pray and love</p>
-    <!-- Use a button to pause/play the video with JavaScript -->
-    <button id="myBtn" onclick="myFunction()">Pause</button>
+
+<header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="./DJI_20201105_134111_11_timelapse.mp4" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Video Header</h1>
+        <p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>
+      </div>
     </div>
-    
-    <script>
-    // Get the video  
-        var video = document.getElementById("myVideo");
+  </div>
+</header>
 
-    // Get the button
-        var btn = document.getElementById("myBtn");
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <p>The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.</p>
+        <p>The overlay color can be changed by changing the <code>background-color</code> of the <code>.overlay</code> class in the CSS.</p>
+        <p>Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.</p>
+        <p class="mb-0">
+          Created by <a href="https://startbootstrap.com">Start Bootstrap</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // Pause and play the video, and change the button text
-        function myFunction() {
-          if (video.paused) {
-            video.play();
-            btn.innerHTML = "Pause";
-          } 
-          else {
-            video.pause();
-            btn.innerHTML = "Play";
-          }
-        }
-    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
 
-    </main>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-    <!-- And here is our main footer that is used across all the pages of our website -->
-
-    <footer>
-      <p>©Copyright 2050 by nobody. All rights reversed.</p>
-    </footer>
-
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
   </body>
 </html>
